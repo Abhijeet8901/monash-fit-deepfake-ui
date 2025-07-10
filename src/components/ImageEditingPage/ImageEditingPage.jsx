@@ -12,7 +12,8 @@ const ImageEditingPage = () => {
   const navigate = useNavigate();
 
   const [prompt, setPrompt] = useState("");
-  const realImage = pollImageData.find((img) => img.secret === "Real");
+  const realImage = {image: require("../../assets/test_images/real.jpg")}
+  // pollImageData.find((img) => img.secret === "Real");
 
   const dispatch = useDispatch();
   const { loading, generatedImageUrl, error } = useSelector(
