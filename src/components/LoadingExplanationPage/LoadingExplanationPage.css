@@ -1,0 +1,57 @@
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  gap: 1.5rem;
+  background: #121212;
+}
+
+.loading-image-wrapper {
+  position: relative;
+  width: 60vw;
+  max-width: 600px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); /* darker shadow */
+}
+
+.loading-image {
+  width: 100%;
+  display: block;
+  filter: brightness(0.85); /* slightly dim image to blend with dark bg */
+}
+
+.scan-overlay {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  animation: scan-diagonal 2.5s infinite linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes scan-diagonal {
+  0% {
+    transform: translate(-100%, -100%);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
+}
+
+.loading-text {
+  font-size: 1.25rem;
+  color: #f0f0f0; /* light text for dark background */
+  text-align: center;
+}

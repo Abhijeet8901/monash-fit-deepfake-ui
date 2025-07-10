@@ -1,0 +1,3 @@
+export const RUN_QWEN_REQUEST = 'RUN_QWEN_REQUEST';
+export const RUN_QWEN_SUCCESS = 'RUN_QWEN_SUCCESS'; 
+export const RUN_QWEN_FAILURE = 'RUN_QWEN_FAILURE';

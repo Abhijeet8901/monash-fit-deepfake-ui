@@ -5,7 +5,7 @@ import {
 } from './GeminiActionTypes';
 
 
-export const generateImage = (prompt, imageUrl, seed = 42) => async (dispatch) => {
+export const generateImage = (prompt, imageUrl, seed = 13) => async (dispatch) => {
   if (!prompt.trim()) return;
 
   dispatch({ type: GENERATE_IMAGE_REQUEST });
@@ -18,9 +18,12 @@ export const generateImage = (prompt, imageUrl, seed = 42) => async (dispatch) =
     });
 
     const data = await response.json();
+    const imageData = data.result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
 
-    if (data.generatedImageUrl) {
-      dispatch({ type: GENERATE_IMAGE_SUCCESS, payload: data.generatedImageUrl });
+    const generatedImageUrl = imageData ? `data:image/png;base64,${imageData}` : undefined;
+
+    if (generatedImageUrl) {
+      dispatch({ type: GENERATE_IMAGE_SUCCESS, payload: generatedImageUrl });
     } else {
       dispatch({ type: GENERATE_IMAGE_FAILURE, error: 'No image returned from Gemini' });
     }

@@ -4,8 +4,13 @@ import "./ImageEditingPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { generateImage } from "../../Redux/Gemini/GeminiAction";
 import { HelperUtilities } from "../../utilities/HelperUtilities";
+import { useNavigate } from "react-router-dom";
+import { PagePaths } from "../../constants/Pages";
 
 const ImageEditingPage = () => {
+
+  const navigate = useNavigate();
+
   const [prompt, setPrompt] = useState("");
   const realImage = pollImageData.find((img) => img.secret === "Real");
 
@@ -21,6 +26,7 @@ const ImageEditingPage = () => {
         realImage.image
       );
       dispatch(generateImage(prompt, base64Image));
+      setPrompt("")
     } catch (error) {
       console.error("Failed to convert image to Base64:", error);
     }
@@ -34,7 +40,7 @@ const ImageEditingPage = () => {
 
   return (
     <div className="image-editing-page">
-      <h2 className="page-title">🧠 Image Editing Lab</h2>
+      <h2 className="page-title">🧠 Monash Image Editing Lab</h2>
 
       <div
         className={`image-pair ${
@@ -44,33 +50,28 @@ const ImageEditingPage = () => {
         <div className="image-box">
           <h3>Original Image</h3>
           <img src={realImage.image} alt="Original" className="image-display" />
-
-          {/* {loading && (
-            <div className="reconstruction-loading-wrapper">
-              <img
-                src={realImage.image}
-                alt="Loading Preview"
-                className="background-image"
-              />
-              <div className="reconstruction-overlay">
-                <div className="shimmer-layer"></div>
-              </div>
-            </div>
-          )} */}
         </div>
 
         {(loading || generatedImageUrl) && (
           <div className="image-box">
-            <h3>Generated Image</h3>
+            <h3>
+            {loading ? (
+              <>
+                🎨 Generating Image<span className="dot-anim">.</span>
+              </>
+            ) : (
+              "✨ Generated Image"
+            )}
+            </h3>
             {!generatedImageUrl ? (
-              <div className="reconstruction-loading-wrapper">
+              <div className="image-lab-reconstruction-loading-wrapper">
                 <img
                   src={realImage.image}
                   alt="Loading Preview"
-                  className="background-image"
+                  className="image-lab-background-image"
                 />
-                <div className="reconstruction-overlay">
-                  <div className="shimmer-layer"></div>
+                <div className="image-lab-reconstruction-overlay">
+                  <div className="image-lab-shimmer-layer"></div>
                 </div>
               </div>
             ) : (
@@ -80,7 +81,7 @@ const ImageEditingPage = () => {
                   alt="Generated"
                   className="image-display"
                 />
-                <button className="explain-button" onClick={() => {}}>
+                <button className="explain-button" onClick={() => navigate(PagePaths.EXPLAIN_LAB, { state: { imageToExplain: generatedImageUrl } })}>
                   Explain
                 </button>
               </>
