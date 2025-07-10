@@ -79,7 +79,7 @@ const ExplainabilityPage = ({ uploadedImage }) => {
           )}
         </div>
 
-        {/* <div className="image-block">
+        <div className="image-block">
           <h3 className="section-heading">
             🧠 What AI Thinks It *Should* Look Like
           </h3>
@@ -106,7 +106,7 @@ const ExplainabilityPage = ({ uploadedImage }) => {
               ? "🔍 The AI cleaned up suspicious parts to show you what might have been real."
               : "⏳ Reconstructing the untampered version..."}
           </p>
-        </div> */}
+        </div>
       </div>
 
       <div className="flip-card-container" ref={cardRef} >
