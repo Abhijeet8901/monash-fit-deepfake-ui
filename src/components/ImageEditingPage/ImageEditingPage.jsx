@@ -40,7 +40,7 @@ const ImageEditingPage = () => {
 
   return (
     <div className="image-editing-page">
-      <h2 className="page-title">🧠 Monash Image Editing Lab</h2>
+      {/* <h2 className="page-title">🧠 Monash Image Editing Lab</h2> */}
 
       <div
         className={`image-pair ${
