@@ -10,7 +10,7 @@ import { PagePaths } from "../../constants/Pages";
 const ExplanabilityModulePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { imageToExplain } = location.state || {};
+  const { imageToExplain } = location.state ?? {};
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,6 +25,13 @@ const ExplanabilityModulePage = () => {
   );
 
   const qwenDataLoaded = Object.keys(qwenExplanations || {}).length > 0;
+
+  useEffect(() => {
+    if (qwenDataLoaded) {
+      window.history.replaceState({}, document.title);
+    }
+  }, [qwenDataLoaded]);
+  
   return (
     <div>
       {!qwenDataLoaded ? (
