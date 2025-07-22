@@ -13,7 +13,7 @@ const ExplainabilityPage = ({ uploadedImage }) => {
 
   const dispatch = useDispatch();
 
-  const [showSimplified, setShowSimplified] = useState(false);
+  const [showSimplified, setShowSimplified] = useState(true);
 
   const cardRef = useRef();
   const frontRef = useRef();
@@ -166,12 +166,12 @@ const ExplainabilityPage = ({ uploadedImage }) => {
           <div className="flip-card-back" ref={backRef}>
             <div className="card-header-with-button">
               <h2 className="section-title">✨ Simplified Explanations</h2>
-              <button
+              {/* <button
                 className="card-toggle-button"
                 onClick={() => setShowSimplified(false)}
               >
                 ← Back to Complex Explanation
-              </button>
+              </button> */}
             </div>
             <div className="entity-explanation-header">
               <span>🎯 Tampered Region</span>
