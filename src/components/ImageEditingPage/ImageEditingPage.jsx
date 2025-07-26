@@ -103,6 +103,9 @@ const ImageEditingPage = () => {
           {loading ? "..." : "Generate 🔄"}
         </button>
       </div>
+      <div className="gemini-credit-fixed">
+        <span>Generated using Gemini 2.5 Flash</span>
+      </div>
     </div>
   );
 };

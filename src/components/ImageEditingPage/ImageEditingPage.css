@@ -4,8 +4,10 @@
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  padding: 2rem 1rem;
-  background: #121212;
+  padding: 13rem 1rem 2rem;
+  /* background: #121212; */
+  background-image: url('../../assets/background_images/open_day_bckground_dark.png');
+  background-size: cover;
   color: #f0f0f0;
   font-family: 'Segoe UI', sans-serif;
   box-sizing: border-box;
@@ -190,4 +192,37 @@
   100% {
     transform: translate(100%, 100%);
   }
+}
+
+.gemini-credit {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: #bbb;
+  font-style: italic;
+  opacity: 0.85;
+  align-self: flex-end;
+
+}
+
+.gemini-credit-fixed {
+  position: fixed;
+  bottom: 10px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #bbb;
+  z-index: 1000;
+  opacity: 0.85;
+  pointer-events: none; /* ensures it doesn't interfere with clicks */
+}
+.gemini-logo {
+  height: 20px;
+  object-fit: contain;
 }

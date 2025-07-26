@@ -19,17 +19,17 @@ const ExplainabilityPage = ({ uploadedImage }) => {
   const frontRef = useRef();
   const backRef = useRef();
 
-  useEffect(() => {
-    const syncHeight = () => {
-      const frontHeight = frontRef.current.offsetHeight;
-      const backHeight = backRef.current.offsetHeight;
-      cardRef.current.style.height = Math.max(frontHeight, backHeight) + "px";
-    };
+  // useEffect(() => {
+  //   const syncHeight = () => {
+  //     const frontHeight = frontRef.current.offsetHeight;
+  //     const backHeight = backRef.current.offsetHeight;
+  //     cardRef.current.style.height = Math.max(frontHeight, backHeight) + "px";
+  //   };
 
-    syncHeight();
-    window.addEventListener("resize", syncHeight);
-    return () => window.removeEventListener("resize", syncHeight);
-  }, [showSimplified]);
+  //   syncHeight();
+  //   window.addEventListener("resize", syncHeight);
+  //   return () => window.removeEventListener("resize", syncHeight);
+  // }, [showSimplified]);
 
   useEffect(() => {
     if (qwenData.edit_instructions) {
@@ -111,68 +111,19 @@ const ExplainabilityPage = ({ uploadedImage }) => {
 
       <div className="flip-card-container" ref={cardRef} >
         <div className={`flip-card ${showSimplified ? "flipped" : ""}`}>
-          {/* Front - Complex */}
-          <div className="flip-card-front" ref={frontRef}>
-            <div className="card-header-with-button">
-              <h2 className="section-title">🔬 Complex Explanation</h2>
-              <button
-                className="card-toggle-button"
-                onClick={() => setShowSimplified(true)}
-              >
-                View Simplified Explanations →
-              </button>
-            </div>
-            <div className="complex-explanation-list">
-              {(() => {
-                const text = HelperUtilities.formatComplexExplanation(
-                  fakeShieldData.complex_explanation
-                );
-                const splitIndex = text.indexOf("2.");
-                const part1 = text
-                  .slice(0, splitIndex)
-                  .replace(/^1\.\s*/, "")
-                  .trim();
-                const part2 = text
-                  .slice(splitIndex)
-                  .replace(/^2\.\s*/, "")
-                  .trim();
 
-                return (
-                  <>
-                    <div className="complex-explanation-card">
-                      <div className="complex-explanation-icon">🖼️</div>
-                      <div className="complex-explanation-text">
-                        <strong>Tampering Description:</strong>
-                        <br />
-                        {part1}
-                      </div>
-                    </div>
-
-                    <div className="complex-explanation-card">
-                      <div className="complex-explanation-icon">🧠</div>
-                      <div className="complex-explanation-text">
-                        <strong>Why AI Thinks It's Fake:</strong>
-                        <br />
-                        <pre>{part2}</pre>
-                      </div>
-                    </div>
-                  </>
-                );
-              })()}
-            </div>
-          </div>
 
           {/* Back - Simplified */}
           <div className="flip-card-back" ref={backRef}>
-            <div className="card-header-with-button">
-              <h2 className="section-title">✨ Simplified Explanations</h2>
+            {/* <div className="card-header-with-button">
+              <h2 className="section-title">✨ Simplified Explanations</h2> */}
               {/* <button
                 className="card-toggle-button"
                 onClick={() => setShowSimplified(false)}
               >
                 ← Back to Complex Explanation
               </button> */}
-            </div>
+            {/* </div> */}
             <div className="entity-explanation-header">
               <span>🎯 Tampered Region</span>
               <span>🧠 Why It Feels Off</span>
