@@ -61,7 +61,7 @@ const ExplainabilityPage = ({ uploadedImage }) => {
             <img src={fakeShieldData.mask} className="mask-layer" />
           </div>
           {Object.keys(qwenData.explanations || {}).length > 0 && (
-            <p className="section-subtext">
+            <p className="section-subtext left-section-subtext">
               👁️ Look at the{" "}
               <strong>
                 {(() => {
