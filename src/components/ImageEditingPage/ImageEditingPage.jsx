@@ -104,7 +104,10 @@ const ImageEditingPage = () => {
         </button>
       </div>
       <div className="gemini-credit-fixed">
-        <span>Generated using Gemini 2.5 Flash</span>
+        <div>
+        <div>Generated using Gemini 2.5 Flash</div>
+        <div>Original Image source: flickr.com</div>
+        </div>
       </div>
     </div>
   );
