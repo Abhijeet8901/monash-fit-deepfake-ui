@@ -1,6 +1,7 @@
 {
   "name": "open-day-2025-fit",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@google/genai": "^1.8.0",
