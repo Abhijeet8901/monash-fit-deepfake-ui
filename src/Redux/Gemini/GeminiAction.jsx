@@ -11,7 +11,7 @@ export const generateImage = (prompt, imageUrl, seed = 13) => async (dispatch) =
   dispatch({ type: GENERATE_IMAGE_REQUEST });
 
   try {
-    const response = await fetch("https://monash-fit-deepfake-backend.pages.dev/api/gemini-edit-image", {
+    const response = await fetch("https://kac0gb7pqi.execute-api.ap-southeast-2.amazonaws.com/api/gemini-edit-image", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt, seed, imageUrl })
