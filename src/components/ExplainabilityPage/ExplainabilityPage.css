@@ -1,12 +1,12 @@
 /* Root Container */
 .explainability-container {
-  padding: 16rem 2rem 0rem;
+  padding: 5rem 2rem 0rem;
   font-family: 'Inter', sans-serif;  
-  min-height: calc(100vh - 16rem);
+  min-height: calc(100vh - 5rem);
   
-  /* background-color: #121212; */
-  background-image: url('../../assets/background_images/open_day_bckground_dark.png');
-  background-size: cover;
+  background-color: #121212;
+  /* background-image: url('../../assets/background_images/open_day_bckground_dark.png');
+  background-size: cover; */
   color: #f5f5f5;
 }
 

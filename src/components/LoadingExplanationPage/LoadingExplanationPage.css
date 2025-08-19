@@ -6,9 +6,9 @@
   align-items: center;
   font-family: 'Inter', sans-serif;
   gap: 1.5rem;
-  /* background: #121212; */
-  background-image: url('../../assets/background_images/open_day_bckground_dark.png');
-  background-size: cover;
+  background: #121212;
+  /* background-image: url('../../assets/background_images/open_day_bckground_dark.png'); */
+  /* background-size: cover; */
 }
 
 .loading-image-wrapper {
